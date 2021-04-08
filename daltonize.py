@@ -40,7 +40,6 @@
    @copyright: 2007 by Oliver Siemoneit
    @license: GNU GPL, see COPYING for details.
 """
-
 import os.path
 
 def execute(filename, fpath, color_deficit='d'):
@@ -159,36 +158,36 @@ def execute(filename, fpath, color_deficit='d'):
 
 if __name__ == '__main__':
     import sys
-    print "Daltonize image correction for color blind users"
+    print("Daltonize image correction for color blind users")
     
     if len(sys.argv) != 2:
-        print "Calling syntax: daltonize.py [fullpath to image file]"
-        print "Example: daltonize.py C:/wikiinstance/data/pages/PageName/attachments/pic.png"
+        print("Calling syntax: daltonize.py [fullpath to image file]")
+        print("Example: daltonize.py pic.jpg")
         sys.exit(1)
 
     if not (os.path.isfile(sys.argv[1])):
-        print "Given file does not exist"
+        print("Given file does not exist")
         sys.exit(1)
 
     extpos = sys.argv[1].rfind(".")
     if not (extpos > 0 and sys.argv[1][extpos:].lower() in ['.gif', '.jpg', '.jpeg', '.png', '.bmp', '.ico', ]):
-        print "Given file is not an image"
+        print("Given file is not an image")
         sys.exit(1)
 
     path, fname = os.path.split(sys.argv[1])
-    print "Please wait. Daltonizing in progress..."
+    print("Please wait. Daltonizing in progress...")
 
     colorblindness = { 'd': 'Deuteranope',
                        'p': 'Protanope',
                        't': 'Tritanope',}
 
     for col_deficit in ['d', 'p', 't']:
-        print "Creating %s corrected version" % colorblindness[col_deficit]
+        print("Creating %s corrected version" % colorblindness[col_deficit])
         modified_filename, modified_fpath = execute(fname, sys.argv[1], col_deficit)
         if modified_fpath == sys.argv[1]:
-            print "Error while processing image: PIL/NumPy missing and/or source file is a grayscale image."
+            print("Error while processing image: PIL/NumPy missing and/or source file is a grayscale image.")
         else:
-            print "Image successfully daltonized"
+            print("Image successfully daltonized")
 
     
 
