@@ -15,6 +15,9 @@ def capPic():
     sleep(5)
     camera.capture("pic.jpg")
     camera.stop_preview()
+    cap = ImageTk.PhotoImage(Image.open("pic.jpg"))
+    my_label = Label(image=cap)
+    my_label.pack()
 
 
 button_cap = Button(root, text= "Capture Photo", command=capPic)
