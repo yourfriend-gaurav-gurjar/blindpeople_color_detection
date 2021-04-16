@@ -12,5 +12,6 @@ Step 3: Click on respective deficit criteria from three button on the left
 "Tritanope (blue/yellow deficit - very rare)"
 
 
-
+Run in the terminal
+python raspberry-pi-demo-gui.py
 
