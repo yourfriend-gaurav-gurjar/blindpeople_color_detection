@@ -14,6 +14,7 @@ root.title("Color Blindness Project")
 # Capture Image from the camera
 def capPic():
     camera = PiCamera()
+    camera.resolution = (450, 450)
     camera.start_preview()
     sleep(5)
     camera.capture("pic.png")
