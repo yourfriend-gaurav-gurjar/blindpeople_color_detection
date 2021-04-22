@@ -2,7 +2,7 @@
 import os.path
 from tkinter import *
 from PIL import ImageTk, Image
-#from picamera import PiCamera
+from picamera import PiCamera
 from time import sleep
 import numpy
 
@@ -12,12 +12,13 @@ root.title("Color Blindness Project")
 
 # Normal Eyes frame
 # Capture Image from the camera
-# def capPic():
-    # camera=PiCamera()
-    # camera.start_preview()
-    # sleep(5)
-    # camera.capture("pic", format="png")
-    # camera.stop_preview()
+def capPic():
+    camera=PiCamera()
+    camera.resolution = (250, 250)
+    camera.start_preview()
+    sleep(5)
+    camera.capture("pic.png")
+    camera.stop_preview()
     # cap = ImageTk.PhotoImage(Image.open("pic.png"))
     # my_label = Label(image=cap)
     # my_label.pack()
@@ -39,7 +40,7 @@ def picShow():
    my_label = Label(top, image=img).pack()
    btn = Button(top, text="Close Window", command=top.destroy).pack()
 
-clickPhoto = Button(ne_frame, text="Take a Picture")
+clickPhoto = Button(ne_frame, text="Take a Picture", command=capPic)
 picShowBtn = Button(ne_frame, text="Show Picture", command=picShow)
 
 clickPhoto.pack(side=RIGHT)
