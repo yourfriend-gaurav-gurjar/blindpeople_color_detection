@@ -19,9 +19,6 @@ def capPic():
     sleep(5)
     camera.capture("pic.png")
     camera.stop_preview()
-    # cap = ImageTk.PhotoImage(Image.open("pic.png"))
-    # my_label = Label(image=cap)
-    # my_label.pack()
 
 
 ne_frame = LabelFrame(root, text="Normal Eyes", padx=30, pady=30)
@@ -31,12 +28,7 @@ def picShow():
    global img
    top = Toplevel()
    top.title("Normal Image - Preview")
-#   picShow_frame = LabelFrame(ne_frame, text="Normal Photo", padx=30, pady=30)
-#   picShow_frame.pack(padx=10, pady=10, side=LEFT)
    img = ImageTk.PhotoImage(Image.open("pic.png"))
-#   canvas = Canvas(picShow_frame, width=300, height=250)
-#   canvas.create_image(0,0, image=img)			
-#   canvas.pack(side= LEFT)
    my_label = Label(top, image=img).pack()
    btn = Button(top, text="Close Window", command=top.destroy).pack()
 
