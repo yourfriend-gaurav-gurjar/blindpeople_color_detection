@@ -1,7 +1,7 @@
-Pre-requisites:
-pip install tkinter
-pip install pillow
-pip install numpy
+# Pre-requisites
+python3 -m venv ./venv
+source venv/source/activate
+pip install wheel pillow numpy pandas
 
 
 Step 1: Take a picture from Pi Camera (using "Take a Picture" button)
@@ -12,6 +12,6 @@ Step 3: Click on respective deficit criteria from three button on the left
 "Tritanope (blue/yellow deficit - very rare)"
 
 
-Run in the terminal
-python raspberry-pi-demo-gui.py
+# Run in the terminal
+python color_blindness.py
 
